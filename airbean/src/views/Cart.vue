@@ -1,14 +1,14 @@
-<template>
-  <div class="menu">
+template>
+  <div class="Cart">
     
       
   </div>
 </template>
 <script>
 export default {
-  name: '',
+  name: 'Cart',
   props: {
-    msg: String
+    
   }
 }
 </script>

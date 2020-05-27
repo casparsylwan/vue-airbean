@@ -1,5 +1,5 @@
-<template>
-  <div class="menu">
+template>
+  <div class="status">
     
       
   </div>

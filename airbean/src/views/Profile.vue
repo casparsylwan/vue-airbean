@@ -1,14 +1,14 @@
-<template>
-  <div class="menu">
+template>
+  <div class="profile">
     
       
   </div>
 </template>
 <script>
 export default {
-  name: '',
+  name: 'Profile',
   props: {
-    msg: String
+   
   }
 }
 </script>
