@@ -37,6 +37,8 @@ export default {
     justify-content: center;
     align-items: center;
 
+    transform: translate(150vw);
+
     ul{
         display: flex;
         flex-direction: column;
