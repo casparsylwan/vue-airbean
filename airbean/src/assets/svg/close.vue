@@ -1,3 +1,4 @@
+<template>
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 24.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Lager_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -9,3 +10,14 @@
 	l-7.8-7.8L19.4,2c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L9.8,8.8L2,1C1.6,0.6,1,0.6,0.6,1c-0.4,0.4-0.4,1,0,1.4l7.8,7.8L1,17.6z"
 	/>
 </svg>
+</template>
+<script>
+export default {
+  name: 'Menu'
+
+}
+</script>
+<style scoped lang="scss">
+
+
+</style>

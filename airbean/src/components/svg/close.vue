@@ -1,0 +1,16 @@
+<template>
+<!-- Generator: Adobe Illustrator 24.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;">
+<path class="st0" d="M1,17.6c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l7.4-7.4l7.8,7.8c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4	l-7.8-7.8L19.4,2c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L9.8,8.8L2,1C1.6,0.6,1,0.6,0.6,1c-0.4,0.4-0.4,1,0,1.4l7.8,7.8L1,17.6z"/>
+</svg>
+</template>
+<script>
+export default {
+  name: 'Close'
+
+}
+</script>
+<style scoped lang="scss">
+
+
+</style>

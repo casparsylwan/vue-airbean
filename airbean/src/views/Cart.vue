@@ -1,17 +1,15 @@
 <template>
-  <div class="Cart">
-    <MenuComp></MenuComp>
-    
-      
+  <div class="cart">   
+           
   </div>
 </template>
 <script>
-import MenuComp from '../components/MenuComp';
+
 
 export default {
   name: 'Cart',
   components: {
-    MenuComp
+    
     
   },  
   props: {
@@ -20,5 +18,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+
+
 
 </style>

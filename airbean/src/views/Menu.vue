@@ -22,6 +22,12 @@
 
         </div>
     </section>
+    <div @click="overLayOpenClose()" class="clicker">
+      <bag></bag>
+    </div>
+    <div v-if="overlay" class="overlay">
+        
+    </div>
 
     <imgBottom class="img-bottom"></imgBottom>
     <div @click="open()" class="click">
@@ -34,6 +40,7 @@ import MenuComp from '../components/MenuComp';
 import OpenClose from '../components/layout/OpenClose';
 import imgHeader from '../components/svg/graphics-header';
 import imgBottom from '../components/svg/graphics-footer';
+import bag from '../components/svg/bag';
 import json from '../assets/data/menu.json';
 
 export default {
@@ -42,17 +49,24 @@ export default {
       MenuComp,
       imgHeader,
       imgBottom,
-      OpenClose
+      OpenClose,
+      bag
+      
 
   },
   data(){
       return{
       openCloseMenu: false,
-      menu : json.menu
+      menu : json.menu,
+      overlay:true
 
       }
   },
    methods: {
+
+     overLayOpenClose(){
+       this.overlay = !this.overlay;
+     },
 
     open(){
       this.openCloseMenu = !this.openCloseMenu;
@@ -170,5 +184,15 @@ table{
 .img-bottom{
     order:1;
 }
+
+.overlay{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
 
 </style>
