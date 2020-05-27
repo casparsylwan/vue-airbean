@@ -1,12 +1,20 @@
 <template>
   <div class="menu">
-    Menu
+    <MenuComp></MenuComp>
       
   </div>
 </template>
 <script>
+import MenuComp from '../components/MenuComp';
+
 export default {
-  name: '',
+  name: 'Menu',
+  components:{
+      MenuComp
+
+      
+
+  },
   props: {
     msg: String
   }

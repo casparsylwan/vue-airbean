@@ -1,11 +1,19 @@
 <template>
   <div class="about">
+    <MenuComp></MenuComp>
    
   </div>
 </template>
 <script>
+import MenuComp from '../components/MenuComp';
+
+
 export default {
   name: 'about',
+  components: {
+    MenuComp
+    
+  },
   props: {
     
   }
