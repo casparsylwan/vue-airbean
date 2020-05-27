@@ -60,4 +60,8 @@ a{
     text-decoration: none;
 }
 
+p, div, li, a{
+	font-family: 'PT Serif', serif;
+}
+
 </style>

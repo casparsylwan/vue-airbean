@@ -31,13 +31,19 @@ export default {
 <style scoped lang="scss">
 
   .nav-menu{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left:0vw;
+    right:0vw;
+    z-index: 10;
     background-color: #2F2926 ;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    transform: translate(150vw);
+    
 
     ul{
         display: flex;
