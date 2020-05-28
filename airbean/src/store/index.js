@@ -9,10 +9,7 @@ export default new Vuex.Store({
     clientOrder:{
       id:'1',
       name:'Caspar',
-      order:[{id:1,
-              name:"kaffe",
-              amount:2
-              }]
+      order:[{"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39, "amount":1}]
     }
   },
   mutations: {

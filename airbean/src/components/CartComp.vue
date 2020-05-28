@@ -7,7 +7,7 @@
            
             <td>
               <div>
-                {{ menuNameLine(item.name) }}
+                {{ menuNameLine(item.title) }}
               </div>
               <div>
                 {{ "96" }} kr
@@ -42,6 +42,12 @@ export default {
             title[i] = name[i];
         }
         return title.join("")
+    },
+    calcTotalPrice(order){
+
+      let sum =  order.reduce((sum, value) => sum += value.price)
+
+      return sum;
     }
   }
 }
