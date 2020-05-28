@@ -9,7 +9,7 @@ export default {
   name: 'Landing',
 
   created(){
-      setTimeout( () => this.$router.push({ path: '/home'}), 3000);
+      setTimeout( () => this.$router.push({ path: '/home'}), 4000);
 
     }
   }
