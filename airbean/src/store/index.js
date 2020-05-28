@@ -1,5 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex)
 
@@ -15,6 +16,11 @@ export default new Vuex.Store({
   mutations: {
   },
   actions: {
+    async fetchClient(){
+      console.log("hej på dig!");
+      const response = await axios.get('/backendAirBean/webapi/customer/all');
+      console.log(response);
+    }
   },
   modules: {
   },

@@ -1,13 +1,9 @@
 module.exports = {
     devServer: {
       proxy: {
-        '^/api': {
-          target: '<url>',
-          ws: true,
-          changeOrigin: true
-        },
-        '^/foo': {
-          target: '<other_url>'
+        '^/backendAirBean': {
+          target: 'http://localhost:8081/',
+          logLevel:'debug'
         }
       }
     }

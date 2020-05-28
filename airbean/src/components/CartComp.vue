@@ -30,9 +30,13 @@ export default {
 
     giveName(){
       return this.$store.getters.giveName
-    } 
+    },
+    
     
   },
+  created(){
+      this.$store.dispatch("fetchClient");
+    }, 
   methods:{
      menuNameLine(name){
         let title = [".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."] 
