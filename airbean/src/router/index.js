@@ -11,8 +11,13 @@ import Profile from '../views/Profile';
 Vue.use(VueRouter)
 
   const routes = [
+    {
+      path:'/',
+      name: 'Landing',
+      component:Landing
+    },
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -20,11 +25,6 @@ Vue.use(VueRouter)
     path: '/about',
     name: 'About',
     component:About
-  },
-  {
-    path:'/landing',
-    name: 'Landing',
-    component:Landing
   },
   {
     path:'/menu',
