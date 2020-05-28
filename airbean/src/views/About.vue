@@ -27,8 +27,6 @@ import OpenClose from '../components/layout/OpenClose';
 import imgHeader from '../components/svg/graphics-header';
 import imgBottom from '../components/svg/graphics-footer';
 
-
-
 export default {
   name: 'about',
   components: {
