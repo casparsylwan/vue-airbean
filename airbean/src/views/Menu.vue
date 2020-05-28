@@ -20,6 +20,8 @@
                 </tr>                
             </table>
 
+            
+
         </div>
     </section>
     <div @click="overLayOpenClose()" class="clicker">
@@ -58,7 +60,7 @@ export default {
       return{
       openCloseMenu: false,
       menu : json.menu,
-      overlay:true
+      overlay:false
 
       }
   },
@@ -66,6 +68,7 @@ export default {
 
      overLayOpenClose(){
        this.overlay = !this.overlay;
+       this.$router.push('/cart');
      },
 
     open(){

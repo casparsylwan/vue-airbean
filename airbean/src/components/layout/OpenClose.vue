@@ -1,7 +1,7 @@
 <template>
   <div @click="spinTheLines()" class="open-close"  >
       <div class="circle" v-bind:class="open" >
-          <p class="turn1"></p>
+          <p></p>
           <p></p>
           <p></p>
       </div>     
