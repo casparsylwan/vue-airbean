@@ -19,7 +19,7 @@ export default new Vuex.Store({
     async fetchClient(){
       console.log("hej på dig!");
       const response = await axios.get('/backendAirBean/webapi/customer/all');
-      console.log(response);
+      console.log(response.data);
     }
   },
   modules: {
@@ -28,6 +28,10 @@ export default new Vuex.Store({
 
     giveName(state){
       return state.clientOrder;
+    },
+    getOrder(state, item){
+      state.clientOrder.order.push(item);
+      console.log(state.clientOrder.order);
     }
 
   }
