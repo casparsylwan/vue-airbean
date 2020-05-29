@@ -10,17 +10,19 @@
                 {{ menuNameLine(item.title) }}
               </div>
               <div>
-                {{ "96" }} kr
+                {{ item.price * item.amount }} kr
               </div>
                </td>
             <td>{{ item.amount }}</td>
         </tr>
-
-
       </table>
-    </section>
-    {{ giveName.id }} 
       
+      
+    </section>  
+      <div class="total">
+        <h2> Total<span> ........................ </span> {{ calcTotalPrice()}} kr </h2>
+        
+      </div>
   </div>
 </template>
 <script>
@@ -39,7 +41,7 @@ export default {
     }, 
   methods:{
      menuNameLine(name){
-        let title = [".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."] 
+        let title = [".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."] 
         let len = name.split("").length;
 
         for(let i=0; i<len; i++){
@@ -47,9 +49,12 @@ export default {
         }
         return title.join("")
     },
-    calcTotalPrice(order){
-
-      let sum =  order.reduce((sum, value) => sum += value.price)
+    calcTotalPrice(){
+      let sum = 0;
+      for(let i = 0; i< this.giveName.order.length; i++)
+      {
+          sum += this.giveName.order[i].price * this.giveName.order[i].amount;
+      }
 
       return sum;
     }
@@ -67,6 +72,10 @@ export default {
 
         background-color: #fff;
         border-radius: 0.5rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
     }
 
     h2{
@@ -80,6 +89,7 @@ export default {
       border: solid black 1px;
       margin: auto;
       width: 90%;
+      min-height: 70%;
 
       td:nth-child(1){
         display:flex;
@@ -90,8 +100,37 @@ export default {
             font-weight: bold;
             line-height: 28px;
             letter-spacing: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 15rem;
         }
 
+      }
+    }
+
+    section{
+      min-height: 75vh;
+    }
+
+    .total{
+      width: 70%;
+      margin: 0 1rem 0 1rem;
+      
+      white-space: nowrap;
+      h2{
+        font-size: 1.3rem; 
+        font-weight: bold;
+        line-height: 28px;
+        letter-spacing: 3px;
+      }
+
+      span{
+        font-size: 1.2rem;
+        font-weight: 500;
+        overflow: hidden;
+        white-space: nowrap;
+        letter-spacing: 1px;
+        
       }
     }
 

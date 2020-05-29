@@ -108,9 +108,7 @@ export default {
     addOrderToStore(){
       
       return this.$store.getters.getOrder
-    },
-    
-    
+    },    
   }
 }
 </script>
