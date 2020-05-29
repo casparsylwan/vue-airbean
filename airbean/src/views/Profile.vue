@@ -3,8 +3,8 @@
       <flowerTop/>
       <noPhoto/>
       <div class="info" >
-        <h3>{{ "namn efternamn"  }}</h3>
-        <p> {{ "email@some.thing" }} </p>
+        <h3>{{ giveName.name  }}</h3>
+        <p> {{ giveName.email }} </p>
       </div>
       <MenuComp v-if="openCloseMenu"></MenuComp>
       <div @click="open()" class="click">
@@ -35,6 +35,15 @@ export default {
     openCloseMenu: false,
     openClass: "open"
     }
+    
+  },
+  computed:{
+
+    giveName(){
+      return this.$store.getters.giveName
+    },
+    
+    
   },
   methods: {
 

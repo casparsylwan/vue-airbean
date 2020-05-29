@@ -9,8 +9,9 @@ export default new Vuex.Store({
     name:"Caspar",
     clientOrder:{
       id:'1',
-      name:'Caspar',
-      order:[{"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39, "amount":1}]
+      name:'Caspar Sylwan',
+      email:'casparsylwan@gmail.com',
+      order:[]
     }
   },
   mutations: {
@@ -29,9 +30,9 @@ export default new Vuex.Store({
     giveName(state){
       return state.clientOrder;
     },
-    getOrder(state, item){
-      state.clientOrder.order.push(item);
-      console.log(state.clientOrder.order);
+    getOrder(state){
+      return state.clientOrder.order
+      
     }
 
   }

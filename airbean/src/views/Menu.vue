@@ -8,7 +8,7 @@
             <table>
                 <tr :key="item.id" v-for="item in menu">
                     <td>
-                        <div class="plus">+</div>
+                        <div @click="addOrder(item)" class="plus">+</div>
                     </td>
                     <td>
                         <span class="name">{{ menuNameLine(item.title)  }}</span>
@@ -87,11 +87,30 @@ export default {
             title[i] = name[i];
         }
         return title.join("")
+    },
+    addOrder(item){
+      
+      let index = this.addOrderToStore.findIndex(orderItem => orderItem.id == item.id );
+      
+      if(index == -1){
+        item.amount = 1;
+        this.addOrderToStore.push(item);
+      }
+      else
+      {
+        this.addOrderToStore[index].amount += 1;        
+      }
     }
 
   },
-  props: {
-    msg: String
+  computed:{
+
+    addOrderToStore(){
+      
+      return this.$store.getters.getOrder
+    },
+    
+    
   }
 }
 </script>
