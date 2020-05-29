@@ -1007,3 +1007,11 @@ java.io.FileNotFoundException: C:\Users\Caspars Dator\Desktop\FrontEnd\Grupparbe
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154) ~[org.eclipse.core.resources_3.13.600.v20191122-2104.jar:na]
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244) ~[org.eclipse.core.resources_3.13.600.v20191122-2104.jar:na]
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.10.600.v20191122-2104.jar:na]
+2020-05-29 09:15:56,616 [Worker-33: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: se.casparsylwan:backendAirBean:0.0.1-SNAPSHOT @ C:\Users\Caspars Dator\Desktop\FrontEnd\GrupparbeteAirBean\vue-airbean\server\backendAirBean\pom.xml.
+2020-05-29 09:16:05,491 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-05-29 09:16:05,491 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Caspars Dator\Desktop\FrontEnd\GrupparbeteAirBean\vue-airbean\server\backendAirBean\src\main\resources
+2020-05-29 09:16:05,496 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-05-29 09:16:05,496 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Caspars Dator\Desktop\FrontEnd\GrupparbeteAirBean\vue-airbean\server\backendAirBean\src\test\resources
+2020-05-29 09:16:05,499 [Worker-33: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of backendAirBean
+2020-05-29 09:16:05,520 [Worker-33: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for backendAirBean
+2020-05-29 09:16:05,538 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
