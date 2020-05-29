@@ -20,7 +20,7 @@
       
     </section>  
       <div class="total">
-        <h2> Total<span> ........................ </span> {{ calcTotalPrice()}} kr </h2>
+        <h2> Total<span> ...................... </span> {{ calcTotalPrice()}} kr </h2>
         
       </div>
   </div>
@@ -68,7 +68,7 @@ export default {
         left: 1.5rem;
         right: 1.5rem;
 
-        min-height: 90vh;
+        min-height: 80vh;
 
         background-color: #fff;
         border-radius: 0.5rem;
@@ -76,17 +76,19 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: stretch;
+
+        overflow-y: scroll;
     }
 
     h2{
       font-weight: bold;
       font-size: 2rem;
       text-align: center;
-      margin: 2rem 0 2rem 0;
+      margin: 1.5rem 0 1.5rem 0;
     }
 
     table{
-      border: solid black 1px;
+     
       margin: auto;
       width: 90%;
       min-height: 70%;
@@ -106,10 +108,16 @@ export default {
         }
 
       }
+
+      td{
+        margin-bottom: 1.5rem;
+      }
+
+      
     }
 
     section{
-      min-height: 75vh;
+      min-height: 70vh;
     }
 
     .total{
