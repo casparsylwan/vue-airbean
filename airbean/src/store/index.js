@@ -8,24 +8,30 @@ export default new Vuex.Store({
   state: {
     name:"Caspar",
     clientOrder:{
-      id:'1',
-      name:'Caspar Sylwan',
-      email:'casparsylwan@gmail.com',
+      id:'',
+      name:'',
+      email:'',
       order:[],
       orderHistory:[]
     }
     //{id:"#123456", sum: 443, date:'20/12/12'}, {id:"#123457", sum: 443, date:'20/12/12'}
   },
   mutations: {
+
+    setClient : (state, client) => ( state.clientOrder = client  )
+    
   },
   actions: {
-    async fetchClient(){
+    async fetchClient({commit}){
       console.log("hej på dig!");
       const response = await axios.get('/backendAirBean/webapi/customer/all');
-      console.log(response.data);
+      commit( 'setClient', response.data);
+     console.log(response)
     }
   },
   modules: {
+
+    
   },
   getters:{
 

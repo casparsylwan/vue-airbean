@@ -102,7 +102,10 @@ export default {
 
       return sum;
     }
-  }
+  },
+  created(){
+      this.$store.dispatch("fetchClient");
+    }
 }
 </script>
 <style scoped lang="scss">
