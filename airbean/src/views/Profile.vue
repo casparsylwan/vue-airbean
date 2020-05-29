@@ -3,9 +3,46 @@
       <flowerTop/>
       <noPhoto/>
       <div class="info" >
-        <h3>{{ giveName.name  }}</h3>
-        <p> {{ giveName.email }} </p>
+        <h3>{{ getClient.name  }}</h3>
+        <p> {{ getClient.email }} </p>
       </div>
+      <div class="table">
+        <h2>Orderhistorik</h2>
+        <div class="box" :key="order.id" v-for="order in getClient.orderHistory">
+            <div class="box1">
+              <div class="key">
+                {{ order.id }}
+              </div>
+              <div class="total">
+                total summa
+              </div>
+            </div>
+            <div class="box2">
+              <div class="date">
+                {{ order.date }}
+              </div>
+              <div class="sum">
+                  {{ order.sum }} kr
+              </div>
+            </div>            
+        </div>
+        <div class="box">
+            <div class="box1">
+              <div class="key">
+                Totalt spenderat
+              </div>
+              
+            </div>
+            <div class="box2">
+              <div class="date">
+                {{ totalSent() }}
+              </div>
+              
+            </div>            
+        </div>
+
+      </div>
+      
       <MenuComp v-if="openCloseMenu"></MenuComp>
       <div @click="open()" class="click">
       <OpenClose class="openclose" :class="open" ></OpenClose>
@@ -39,8 +76,8 @@ export default {
   },
   computed:{
 
-    giveName(){
-      return this.$store.getters.giveName
+    getClient(){
+      return this.$store.getters.getClient
     },
     
     
@@ -54,6 +91,16 @@ export default {
       }else{
         this.open=="close"
       }
+    },
+
+    totalSent(){
+      let sum = 0;
+      for(let i= 0; i<this.getClient.orderHistory.length; i++ ){
+
+          sum += this.getClient.orderHistory[i].sum;
+      }
+
+      return sum;
     }
   }
 }
@@ -66,6 +113,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
 
   .info{
@@ -85,4 +133,59 @@ export default {
     }
   }
 
+  .table{
+    width: 90%;
+    color:#fff;
+    margin-top:3rem;
+    
+
+    h2{
+      font-weight: bold;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .box{
+      display: flex;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+      &:nth-last-child(2){
+        border-bottom: 2px solid rgba(255, 255, 255, 1);
+      }
+
+      &:nth-last-child(1){
+        border-bottom: 0px solid rgba(255, 255, 255, 1);
+      }
+    }
+
+    .box1{
+      width: 80%;
+      border-bottom: 1px rgba(55, 55, 55, 0.5);
+    }
+
+    .key, .date{
+      margin-bottom: 0.4rem;
+      font-weight: bold;
+    }
+  }
+
+  .key{
+      font-weight: bold;
+     
+    }
+
+  .small{
+          font-weight: 300;
+          font-style: normal;
+          
+        }
+
+  .big{
+        font-weight: bold;
+        letter-spacing: 2px;
+  }
 </style>

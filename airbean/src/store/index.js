@@ -11,7 +11,8 @@ export default new Vuex.Store({
       id:'1',
       name:'Caspar Sylwan',
       email:'casparsylwan@gmail.com',
-      order:[]
+      order:[],
+      orderHistory:[{id:"#123456", sum: 443, date:'20/12/12'}, {id:"#123457", sum: 443, date:'20/12/12'}]
     }
   },
   mutations: {
@@ -27,7 +28,7 @@ export default new Vuex.Store({
   },
   getters:{
 
-    giveName(state){
+    getClient(state){
       return state.clientOrder;
     },
     getOrder(state){

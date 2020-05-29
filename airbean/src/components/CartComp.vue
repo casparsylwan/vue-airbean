@@ -3,7 +3,7 @@
     <section>
       <h2> Din beställning</h2>
       <table>
-        <tr :key="item.id" v-for="item in giveName.order">
+        <tr :key="item.id" v-for="item in getClient.order">
            
             <td>
               <div>
@@ -30,8 +30,8 @@ export default {
   name: 'CartComp',
   computed:{
 
-    giveName(){
-      return this.$store.getters.giveName
+    getClient(){
+      return this.$store.getters.getClient
     },
     
     
@@ -51,9 +51,9 @@ export default {
     },
     calcTotalPrice(){
       let sum = 0;
-      for(let i = 0; i< this.giveName.order.length; i++)
+      for(let i = 0; i< this.getClient.order.length; i++)
       {
-          sum += this.giveName.order[i].price * this.giveName.order[i].amount;
+          sum += this.getClient.order[i].price * this.getClient.order[i].amount;
       }
 
       return sum;
