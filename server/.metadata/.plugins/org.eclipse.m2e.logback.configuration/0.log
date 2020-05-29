@@ -974,3 +974,5 @@ java.io.FileNotFoundException: C:\Users\Caspars Dator\Desktop\FrontEnd\Grupparbe
 2020-05-29 08:47:53,889 [main] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: se.casparsylwan:backendAirBean:0.0.1-SNAPSHOT @ C:\Users\Caspars Dator\Desktop\FrontEnd\GrupparbeteAirBean\vue-airbean\server\backendAirBean\pom.xml.
 2020-05-29 08:52:01,772 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-05-29 08:52:01,772 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Caspars Dator\Desktop\FrontEnd\GrupparbeteAirBean\vue-airbean\server\backendAirBean\src\main\resources
+2020-05-29 08:52:01,774 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-05-29 08:52:01,775 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Caspars Dator\Desktop\FrontEnd\GrupparbeteAirBean\vue-airbean\server\backendAirBean\src\test\resources
