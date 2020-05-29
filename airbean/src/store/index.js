@@ -12,8 +12,9 @@ export default new Vuex.Store({
       name:'Caspar Sylwan',
       email:'casparsylwan@gmail.com',
       order:[],
-      orderHistory:[{id:"#123456", sum: 443, date:'20/12/12'}, {id:"#123457", sum: 443, date:'20/12/12'}]
+      orderHistory:[]
     }
+    //{id:"#123456", sum: 443, date:'20/12/12'}, {id:"#123457", sum: 443, date:'20/12/12'}
   },
   mutations: {
   },
