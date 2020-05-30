@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     name:"Caspar",
+    orderTemp :{ id:-1},
     clientOrder:{
       id:'',
       name:'',
@@ -18,7 +19,8 @@ export default new Vuex.Store({
   },
   mutations: {
 
-    setClient : (state, client) => ( state.clientOrder = client  )
+    setClient : (state, client) => ( state.clientOrder = client  ),
+    newOrder :  (state, order) =>  ( state.orderTemp = order)
     
   },
   actions: {
@@ -27,6 +29,14 @@ export default new Vuex.Store({
       const response = await axios.get('/backendAirBean/webapi/customer/all');
       commit( 'setClient', response.data);
      console.log(response)
+    },
+    async sendOrder({ commit }, order){
+
+    //  console.log(order)
+      const response = await axios.post('/backendAirBean/webapi/customer/new', {order});
+      commit('newOrder', response.data)
+      console.log(response.data)
+      
     }
   },
   modules: {
@@ -41,6 +51,9 @@ export default new Vuex.Store({
     getOrder(state){
       return state.clientOrder.order
       
+    },
+    getTempOrder(state){
+      return state.orderTemp;
     }
 
   }

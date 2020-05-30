@@ -1,13 +1,13 @@
 <template>
   <div class="status">
     <MenuComp v-if="openCloseMenu"></MenuComp>
-    <h3>ordernummer  <p>{{ "#test1234" }} </p> </h3>
+    <h3 v-if="getNewOrder.id !=-1" >ordernummer  <p>{{ getNewOrder.id }} </p> </h3>
     <Drone/>
     <div class="heading">
       <h2>Din beställning</h2>
       <h2> är på väg !</h2>
     </div>
-    <h3>{{ "13" }} minuter </h3>
+    <h3 v-if="getNewOrder.id !=-1" >{{ "13" }} minuter </h3>
 
     <div class="btn">
       ok cool!
@@ -46,6 +46,16 @@ export default {
         this.open=="close"
       }
     }
+  },
+  computed:{
+
+    getNewOrder(){
+      
+        return this.$store.getters.getTempOrder
+     
+      
+    }
+
   }
 }
 </script>

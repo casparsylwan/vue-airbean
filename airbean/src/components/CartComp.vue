@@ -27,7 +27,7 @@
       <div class="total">
         <h2> Total<span> .............. </span> {{ sum }} kr <p>inkl moms + drönararleverans</p>  </h2>
         
-        <div class="btn">
+        <div @click="sendOrder()" class="btn">
           <p>
             Take my money!
           </p>
@@ -53,13 +53,16 @@ export default {
     addOrderToStore(){
       
       return this.$store.getters.getOrder
+    },
+    getNewOrder(){
+      return this.$store.getters.getTempOrder
     }
     
     
   },
 
    created(){
-  //     this.$store.dispatch("fetchClient");
+
           this.calcTotalPrice()
           
          
@@ -105,6 +108,16 @@ export default {
       }  
       this.calcTotalPrice()
 
+    },
+    sendOrder(){
+     
+     if(this.addOrderToStore.length>0){
+
+        this.$store.dispatch("sendOrder",JSON.stringify(this.addOrderToStore));
+        this.$router.push({ path: '/status'})
+
+     }
+      
     }
   }
 }
