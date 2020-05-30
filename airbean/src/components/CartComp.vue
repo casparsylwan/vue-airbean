@@ -12,17 +12,28 @@
               <div>
                 {{ item.price * item.amount }} kr
               </div>
-               </td>
-            <td>{{ item.amount }}</td>
+            </td>
+            <td class="amount">
+              <p>^</p>
+              {{ item.amount }}
+              <p class="rotated">^</p>
+              
+            </td>
         </tr>
       </table>
       
       
     </section>  
       <div class="total">
-        <h2> Total<span> ...................... </span> {{ calcTotalPrice()}} kr </h2>
+        <h2> Total<span> .............. </span> {{ calcTotalPrice()}} kr <p>inkl moms + drönararleverans</p>  </h2>
         
+        <div class="btn">
+          <p>
+            Take my money!
+          </p>
+        </div>
       </div>
+      
   </div>
 </template>
 <script>
@@ -36,9 +47,9 @@ export default {
     
     
   },
-  created(){
-      this.$store.dispatch("fetchClient");
-    }, 
+  // created(){
+  //     this.$store.dispatch("fetchClient");
+  //   }, 
   methods:{
      menuNameLine(name){
         let title = [".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."] 
@@ -93,9 +104,24 @@ export default {
       width: 90%;
       min-height: 70%;
 
+      tr{
+        
+        display: flex;
+      }
+
+     
+
+      td{
+              margin-bottom: 1.2rem;
+              
+        }
+
+
+
       td:nth-child(1){
         display:flex;
         flex-direction: column;
+
 
         div:nth-child(1){
             font-size: 1.3rem; 
@@ -108,21 +134,15 @@ export default {
         }
 
       }
-
-      td{
-        margin-bottom: 1.5rem;
-      }
-
       
     }
 
     section{
-      min-height: 70vh;
+      min-height: 50vh;
     }
 
     .total{
-      width: 70%;
-      margin: 0 1rem 0 1rem;
+    
       
       white-space: nowrap;
       h2{
@@ -130,6 +150,14 @@ export default {
         font-weight: bold;
         line-height: 28px;
         letter-spacing: 3px;
+
+        p{
+          text-align: start;
+          font-weight: 200;
+          font-size: 0.8rem;
+          margin-left:2rem;
+          letter-spacing: 1px;
+        }
       }
 
       span{
@@ -140,6 +168,47 @@ export default {
         letter-spacing: 1px;
         
       }
+    }
+
+    .rotated{
+      transform-origin: center;
+      transform: rotate(180deg);
+    }
+
+    .amount{
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    
+      margin-top: -0.5rem;
+      
+
+        p{
+          font-weight: bold;
+          font-size: 1.3rem;
+        }            
+    }
+
+    .btn{
+
+      margin: -0.5rem 1rem 1rem 1rem;
+    
+      border-radius: 2rem;
+
+      background-color: #2F2926;
+      color:#fff;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+
+      p{
+        padding:0.7rem;
+      }
+
+      
+      
     }
 
 </style>
