@@ -9,7 +9,7 @@ export default new Vuex.Store({
     name:"Caspar",
     orderTemp :{ id:-1},
     clientOrder:{
-      id:'',
+      id: -1,
       name:'',
       email:'',
       order:[],

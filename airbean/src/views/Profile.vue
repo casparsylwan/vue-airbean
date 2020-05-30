@@ -42,7 +42,7 @@
         </div>
 
       </div>
-      
+      <signup v-if="getClient.id === -1"></signup>
       <MenuComp v-if="openCloseMenu"></MenuComp>
       <div @click="open()" class="click">
       <OpenClose class="openclose" :class="open" ></OpenClose>
@@ -57,6 +57,7 @@ import MenuComp from '../components/MenuComp';
 import OpenClose from '../components/layout/OpenClose';
 import flowerTop from '../components/svg/graphics-header';
 import noPhoto from '../components/layout/nophoto';
+import signup from '../components/signup';
 
 export default {
   name: 'Profile',
@@ -64,7 +65,8 @@ export default {
     MenuComp,
     OpenClose,
     flowerTop,
-    noPhoto
+    noPhoto,
+    signup
     
   },  
   data(){
@@ -112,7 +114,7 @@ export default {
 
   .profile{
     background:#2F2926;
-    min-height: 100vh;
+    min-height: 110vh;
     display: flex;
     flex-direction: column;
     align-items: center;
