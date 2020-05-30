@@ -14,9 +14,9 @@
               </div>
             </td>
             <td class="amount">
-              <p>^</p>
+              <p @click="addOne( item)" >^</p>
               {{ item.amount }}
-              <p class="rotated">^</p>
+              <p @click="removeOne(item)" class="rotated">^</p>
               
             </td>
         </tr>
@@ -25,7 +25,7 @@
       
     </section>  
       <div class="total">
-        <h2> Total<span> .............. </span> {{ calcTotalPrice()}} kr <p>inkl moms + drönararleverans</p>  </h2>
+        <h2> Total<span> .............. </span> {{ sum }} kr <p>inkl moms + drönararleverans</p>  </h2>
         
         <div class="btn">
           <p>
@@ -39,17 +39,31 @@
 <script>
 export default {
   name: 'CartComp',
+  data: function () {
+  return {
+    sum: 0
+  }
+},
   computed:{
 
     getClient(){
       return this.$store.getters.getClient
     },
+
+    addOrderToStore(){
+      
+      return this.$store.getters.getOrder
+    }
     
     
   },
-  // created(){
+
+   created(){
   //     this.$store.dispatch("fetchClient");
-  //   }, 
+          this.calcTotalPrice()
+          
+         
+     }, 
   methods:{
      menuNameLine(name){
         let title = [".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."] 
@@ -61,13 +75,36 @@ export default {
         return title.join("")
     },
     calcTotalPrice(){
-      let sum = 0;
+      this.sum = 0;
       for(let i = 0; i< this.getClient.order.length; i++)
       {
-          sum += this.getClient.order[i].price * this.getClient.order[i].amount;
+          this.sum += this.getClient.order[i].price * this.getClient.order[i].amount;
       }
 
-      return sum;
+      return this.sum;
+    },
+    addOne( item){
+      
+      let index = this.getClient.order.findIndex( itemObj => itemObj.id == item.id);
+      
+      this.getClient.order[index].amount += 1;
+      
+      this.calcTotalPrice()
+      
+
+    },
+    removeOne(item){
+      
+      let index = this.getClient.order.findIndex( itemObj => itemObj.id == item.id);
+      if(this.getClient.order[index].amount > 1){
+        this.getClient.order[index].amount -= 1;
+        
+      }else{
+        this.getClient.order.splice(index,1);
+        
+      }  
+      this.calcTotalPrice()
+
     }
   }
 }
