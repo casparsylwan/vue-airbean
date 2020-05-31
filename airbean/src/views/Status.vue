@@ -1,7 +1,7 @@
 <template>
   <div class="status">
     <MenuComp v-if="openCloseMenu"></MenuComp>
-    <h3 v-if="getNewOrder.id !=-1" >ordernummer  <p>{{ getNewOrder.id }} </p> </h3>
+    <h3 v-if="getNewOrder.id !=-1" >ordernummer  <p> #{{ getNewOrder.id }} </p> </h3>
     <Drone/>
     <div class="heading">
       <h2>Din beställning</h2>

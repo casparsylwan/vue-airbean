@@ -11,7 +11,7 @@
         <div class="box" :key="order.id" v-for="order in getClient.orderHistory">
             <div class="box1">
               <div class="key">
-                {{ order.id }}
+                #{{ order.id }}
               </div>
               <div class="total">
                 total summa
@@ -19,7 +19,7 @@
             </div>
             <div class="box2">
               <div class="date">
-                {{ new Date(order.date).getYear().toString().substr(-2) +"/"+ new Date(order.date).getMonth() +"/"+new Date(order.date).getDate()  }}
+                {{ new Date(order.date).getYear().toString().substr(-2) +"/0"+ (new Date(order.date).getMonth()+1) +"/"+new Date(order.date).getDate()  }}
               </div>
               <div class="sum">
                   {{ order.sum }} kr

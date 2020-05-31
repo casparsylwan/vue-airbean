@@ -18,9 +18,13 @@
       </router-link>
       <li></li>
       <router-link to="/Login">
-        <li>Login</li>
+        <li v-if="getClient.id==-1">Login</li>
       </router-link>
-      <li></li>
+      <li v-if="getClient.id==-1"></li>
+      <router-link to="/Login">
+        <li v-if="getClient.id !=-1" @click="logout()" >Logout</li>
+      </router-link>
+      <li v-if="getClient.id !=-1"></li>
     </ul>      
   </div>
 </template>
@@ -29,7 +33,28 @@ export default {
   name: 'Nav',
   props: {
     
-  }
+  },
+  methods:{
+
+    logout(){
+      this.$store.getters.getClient.id = -1
+      this.$store.getters.getClient.name = ''
+      this.$store.getters.getClient.email = ''
+      this.$store.getters.getClient.order = []
+      this.$store.getters.getClient.orderHistory = []
+      console.log(this.$store.getters.getClient)
+
+    }
+
+  },
+  computed:{
+
+    getClient(){
+      return this.$store.getters.getClient
+    }
+    
+    
+  },
 }
 </script>
 <style scoped lang="scss">

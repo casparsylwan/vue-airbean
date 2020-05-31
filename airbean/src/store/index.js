@@ -29,7 +29,11 @@ export default new Vuex.Store({
        state.clientOrder.orderHistory = client.orderHistory 
   },
     newOrder(state, order){
-       state.orderTemp = order
+        console.log(order)
+       state.orderTemp = order.orderHistory[order.orderHistory.length - 1];
+       state.clientOrder.orderHistory = order.orderHistory;
+       state.clientOrder.order = []
+       
       },
 
     newCustomer(state, customer){
@@ -40,8 +44,11 @@ export default new Vuex.Store({
        },
     getCustomer(state, customer){
       state.customerTemp = customer
-    }
-    
+    },
+    checkLocalStorage(state){
+
+      state.subscribe()
+    } 
   },
   actions: {
     async fetchClient({commit}){
