@@ -43,7 +43,8 @@ export default {
       this.$store.getters.getClient.order = []
       this.$store.getters.getClient.orderHistory = []
       console.log(this.$store.getters.getClient)
-
+      localStorage.clear();
+      this.$router.push({ path: '/login'})
     }
 
   },

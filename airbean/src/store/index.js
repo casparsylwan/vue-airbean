@@ -22,11 +22,26 @@ export default new Vuex.Store({
   },
   mutations: {
 
+    initialiseStore(state) {
+
+      if(localStorage.getItem('theCustomer')) {
+        let clientJson = localStorage.getItem('theCustomer');
+        let client = JSON.parse(clientJson)
+        state.clientOrder.name = client.name 
+        state.clientOrder.email = client.email
+        state.clientOrder.id = client.active
+        state.clientOrder.orderHistory = client.orderHistory
+
+      }
+    },
+
     setClient(state, client){
        state.clientOrder.name = client.name 
        state.clientOrder.email = client.email
        state.clientOrder.id = client.active
        state.clientOrder.orderHistory = client.orderHistory 
+       localStorage.setItem('theCustomer', JSON.stringify(client));
+
   },
     newOrder(state, order){
         console.log(order)
@@ -48,6 +63,9 @@ export default new Vuex.Store({
     checkLocalStorage(state){
 
       state.subscribe()
+    },
+    setLocalstorage(state, customer){
+      localStorage.setItem('theCustomer', JSON.stringify(customer));
     } 
   },
   actions: {
@@ -70,15 +88,21 @@ export default new Vuex.Store({
 
       const response = await axios.post('/backendAirBean/webapi/customer/new', {customer});
       commit('newCustomer', response.data)
+      commit('setLocalstorage', response.data)
       console.log(response.data)
     },
     async login({commit}, customer){
 
       const response = await axios.post('/backendAirBean/webapi/customer/login', {customer});
       commit('setClient', response.data)
+
       console.log(response.data)
 
+    },
+    setLocalStorage({commit}, customer){
+      commit('setLocalstorage', customer)
     }
+
   },
   modules: {
 
