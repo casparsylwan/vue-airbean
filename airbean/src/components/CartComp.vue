@@ -113,7 +113,9 @@ export default {
      
      if(this.addOrderToStore.length>0){
 
-        this.$store.dispatch("sendOrder",JSON.stringify(this.addOrderToStore));
+      //  this.$store.getters.getClient.order.push(this.addOrderToStore);
+        this.$store.dispatch("sendOrder",this.$store.getters.getClient);
+        console.log(this.$store.getters.getClient)
         this.$router.push({ path: '/status'})
 
      }

@@ -7,46 +7,62 @@
                 </svg>
             </div>
           <h1>Välkommen till AirBean-familjen!</h1>
-          <h2>Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</h2>
+          <h2>Skriv ditt e-post</h2>
       </div>
       <div class="input-box">
           <div class="input name">
               <label>Name</label>
-              <input type="text" placeholder="Ditt namn" >
+              <input type="text" placeholder="Ditt namn" v-model="customer.name" >
+              {{ customer.name }}
           </div>
           <div class="input email">
-              <label>Name</label>
-              <input type="text" placeholder="Din e-post" >
-          </div>
-          <div class="input checkbox">             
-              <input type="radio" placeholder="Din e-post"  checked="checked" >
-              <label>GDPR Ok!</label>
+              <label>E-post</label>
+              <input type="text" placeholder="Din e-post" v-model="customer.email">
+              {{ customer.email }}
           </div>
       </div>
-
-      <div class="btn">
-          Brew me a up"
-      </div>
-
-      
-       
-      
-
     
+      <div class="btn" @click="login()">
+          Sign in
+      </div>
      
+    <navMenu v-if="openCloseMenu" />
+     <div @click="open()" class="click">
+        <OpenClose> </OpenClose>
+    </div>    
   </div>
 </template>
 <script>
-
+import navMenu from '../components/MenuComp';
+import OpenClose from '../components/layout/OpenClose';
 
 export default {
 
-    
-
   name: 'Login',
   components: {
+      navMenu,
+      OpenClose
 
     
+  },
+  data(){
+      return {
+          openCloseMenu: false,
+          customer: {
+              name:'',
+              email:''
+          }
+      }
+  },
+  methods:{
+      open(){
+      this.openCloseMenu = !this.openCloseMenu;
+        
+    },
+    login(){
+        this.$store.dispatch("login", this.customer);
+        this.$router.push({ path: '/profile'})
+    }
   }  
   
 }
@@ -57,12 +73,10 @@ export default {
         background-color: #F3E4E1;
         border-radius:5px;
 
-        position: absolute;
-        top:5rem;
-        left:1rem;
-        right: 1rem;
+        
 
-        min-height: 90vh;
+        min-height: 100vh;
+        padding: 2rem;
 
         display: flex;
         flex-direction: column;
@@ -163,7 +177,7 @@ export default {
 
     .btn{
         background-color: #2F2926;
-        padding: 0.8rem 2rem 0.8rem 2rem;
+        padding: 0.8rem 3rem 0.8rem 3rem;
 
         font-size: 1.5rem;
         font-weight: bold;

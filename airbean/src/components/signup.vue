@@ -12,27 +12,24 @@
       <div class="input-box">
           <div class="input name">
               <label>Name</label>
-              <input type="text" placeholder="Ditt namn" >
+              <input type="text" placeholder="Ditt namn" v-model="customer.name" >
+              {{ customer.name }}
           </div>
           <div class="input email">
-              <label>Name</label>
-              <input type="text" placeholder="Din e-post" >
+              <label>E-mail</label>
+              <input type="text" placeholder="Din e-post" v-model="customer.email" >
+              {{ customer.email }}
           </div>
           <div class="input checkbox">             
-              <input type="radio" placeholder="Din e-post"  checked="checked" >
+              <input type="radio" checked="checked" >
               <label>GDPR Ok!</label>
           </div>
       </div>
 
-      <div class="btn">
+      <div class="btn" @click="newCustomer()">
           Brew me a up"
       </div>
-
-      
-       
-      
-
-    
+   
      
   </div>
 </template>
@@ -47,6 +44,21 @@ export default {
   components: {
 
     
+  },
+  data(){
+      return {
+                customer:{  name:'',
+                            email:''
+      }
+    }
+  },
+  methods:{
+
+      newCustomer(){
+
+      this.$store.dispatch("newCustomer", this.customer);
+      this.$router.push({ path: '/menu'})
+    }
   }  
   
 }

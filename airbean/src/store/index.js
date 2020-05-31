@@ -6,7 +6,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    name:"Caspar",
+    customerTemp:{
+      name:'',
+      email:''
+    },
     orderTemp :{ id:-1},
     clientOrder:{
       id: -1,
@@ -19,8 +22,25 @@ export default new Vuex.Store({
   },
   mutations: {
 
-    setClient : (state, client) => ( state.clientOrder = client  ),
-    newOrder :  (state, order) =>  ( state.orderTemp = order)
+    setClient(state, client){
+       state.clientOrder.name = client.name 
+       state.clientOrder.email = client.email
+       state.clientOrder.id = client.active
+       state.clientOrder.orderHistory = client.orderHistory 
+  },
+    newOrder(state, order){
+       state.orderTemp = order
+      },
+
+    newCustomer(state, customer){
+      state.clientOrder.name = customer.name 
+      state.clientOrder.email = customer.email
+      state.clientOrder.id = customer.active
+      state.clientOrder.orderHistory = customer.orderHistory
+       },
+    getCustomer(state, customer){
+      state.customerTemp = customer
+    }
     
   },
   actions: {
@@ -33,10 +53,24 @@ export default new Vuex.Store({
     async sendOrder({ commit }, order){
 
     //  console.log(order)
-      const response = await axios.post('/backendAirBean/webapi/customer/new', {order});
+      const response = await axios.post('/backendAirBean/webapi/customer/order/new', {order});
       commit('newOrder', response.data)
       console.log(response.data)
       
+    },
+
+    async newCustomer({commit}, customer){
+
+      const response = await axios.post('/backendAirBean/webapi/customer/new', {customer});
+      commit('newCustomer', response.data)
+      console.log(response.data)
+    },
+    async login({commit}, customer){
+
+      const response = await axios.post('/backendAirBean/webapi/customer/login', {customer});
+      commit('setClient', response.data)
+      console.log(response.data)
+
     }
   },
   modules: {

@@ -17,6 +17,10 @@
         <li>Orderstatus</li>
       </router-link>
       <li></li>
+      <router-link to="/Login">
+        <li>Login</li>
+      </router-link>
+      <li></li>
     </ul>      
   </div>
 </template>

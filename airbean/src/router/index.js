@@ -7,6 +7,7 @@ import Menu from '../views/Menu';
 import Cart from '../views/Cart';
 import Status from '../views/Status';
 import Profile from '../views/Profile';
+import Login from '../views/Login';
 
 Vue.use(VueRouter)
 
@@ -48,6 +49,11 @@ Vue.use(VueRouter)
     component: Profile
   }
   ,
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  }
 ]
 
 const router = new VueRouter({

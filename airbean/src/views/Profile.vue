@@ -19,7 +19,7 @@
             </div>
             <div class="box2">
               <div class="date">
-                {{ order.date }}
+                {{ new Date(order.date).getYear().toString().substr(-2) +"/"+ new Date(order.date).getMonth() +"/"+new Date(order.date).getDate()  }}
               </div>
               <div class="sum">
                   {{ order.sum }} kr
@@ -73,6 +73,7 @@ export default {
     return {
     openCloseMenu: false,
     openClass: "open"
+    
     }
     
   },
@@ -103,10 +104,16 @@ export default {
       }
 
       return sum;
-    }
+    },
+    transformDate(date){
+      let year = Date(date).getFullYear()
+
+      return year;
+    }        
   },
   created(){
-      this.$store.dispatch("fetchClient");
+    //  this.$store.dispatch("fetchClient");
+     console.log(this.getClient) 
     }
 }
 </script>
