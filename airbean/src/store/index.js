@@ -48,6 +48,7 @@ export default new Vuex.Store({
        state.orderTemp = order.orderHistory[order.orderHistory.length - 1];
        state.clientOrder.orderHistory = order.orderHistory;
        state.clientOrder.order = []
+       localStorage.setItem('theCustomer', JSON.stringify(state.clientOrder));
        
       },
 
